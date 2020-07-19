@@ -1,11 +1,19 @@
 #Ressources
+import cv2
 import tkinter
 import webbrowser
+from tkinter import filedialog
 
 # Fenetres et parametres
 app = tkinter.Tk()
 app.geometry("1366x768")
 app.title("Lecteur Vidéo VLB2")
+
+#Fonction Fichier
+def ouvrirFichier():
+    fichierPath = filedialog.askopenfilename()
+    print(fichierPath)
+    
 
 #Fonctions -> Fenetre A propos
 def apropos():
@@ -22,7 +30,7 @@ mainMenu = tkinter.Menu(app)
 
 #Menu FICHIER
 menuFichier = tkinter.Menu(mainMenu, tearoff=0)
-menuFichier.add_command(label="Ouvrir un fichier")
+menuFichier.add_command(label="Ouvrir un fichier", command=ouvrirFichier)
 menuFichier.add_separator()
 menuFichier.add_command(label="Quitter", command=app.quit)
 
