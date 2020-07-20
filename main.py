@@ -1,8 +1,9 @@
 #Ressources
-import cv2
+from tkinter import filedialog
 import tkinter
 import webbrowser
-from tkinter import filedialog
+import vlc
+
 
 # Fenetres et parametres
 app = tkinter.Tk()
@@ -11,9 +12,18 @@ app.title("Lecteur Vidéo VLB2")
 
 #Fonction Fichier
 def ouvrirFichier():
+
+    #Demande à l utilisateur de choisir le fichier
     fichierPath = filedialog.askopenfilename()
     print(fichierPath)
     
+    #Verifie qu il n a pas annulé
+    if fichierPath != "":
+
+        #Essaye de trouver le format de la video
+        separateur = fichierPath.split(".")
+        formatVideo = separateur[-1]
+        print(formatVideo)
 
 #Fonctions -> Fenetre A propos
 def apropos():
